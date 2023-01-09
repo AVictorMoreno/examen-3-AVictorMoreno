@@ -4,6 +4,8 @@
  */
 package exemples.objectdb;
 
+import javax.persistence.ManyToOne;
+
 /**
  * Classe que representa un article que es ven a granel
  * @author professor
@@ -11,6 +13,7 @@ package exemples.objectdb;
 
 public class ArticleAGranel extends Article {
     private static final long serialVersionUID = 1L;
+    @ManyToOne
     private UnitatDeMesura unitat;
 
     /**

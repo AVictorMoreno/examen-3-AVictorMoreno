@@ -4,6 +4,8 @@
  */
 package exemples.objectdb;
 
+import javax.persistence.ManyToOne;
+
 
 
 /**
@@ -12,6 +14,7 @@ package exemples.objectdb;
  */
 
 public class ArticleEnvasat extends Article {
+    @ManyToOne
     private Envas envas;
 
     /**
