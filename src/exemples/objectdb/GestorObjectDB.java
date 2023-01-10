@@ -13,6 +13,8 @@ package exemples.objectdb;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  * Classe que proporciona mètodes per a gestionar la persistencia dels diferents objectes
@@ -35,7 +37,9 @@ public class GestorObjectDB implements Serializable {
      */
 
     public void inserir(Article article) {
-
+        em.getTransaction().begin();
+        em.persist(article);
+        em.getTransaction().commit();
     }
 
     /**
@@ -43,7 +47,9 @@ public class GestorObjectDB implements Serializable {
      * @param envas envas a inserir
      */
     public void inserir(Envas envas) {
-
+        em.getTransaction().begin();
+        em.persist(envas);
+        em.getTransaction().commit();
     }
 
     /**
@@ -52,7 +58,9 @@ public class GestorObjectDB implements Serializable {
      */
 
     public void inserir(UnitatDeMesura unitatDeMesura) {
-
+        em.getTransaction().begin();
+        em.persist(unitatDeMesura);
+        em.getTransaction().commit();
     }
 
 
@@ -62,7 +70,9 @@ public class GestorObjectDB implements Serializable {
      */
     public List<Article> totsArticles(){
 
-        return null; //cal canviar el valor de retorn
+        Query q = em.createQuery("select art from Article art");
+        
+        return q.getResultList(); //cal canviar el valor de retorn
     }
 
     /**
@@ -71,7 +81,12 @@ public class GestorObjectDB implements Serializable {
      * @return  llista dels articles envasats amb l'envas del un tipus donat
      */
     public List<ArticleEnvasat> articlesEnvasatsAmb(String tipus){
-        return null; //cal canviar el valor de retorn
+        
+      
+    TypedQuery<ArticleEnvasat> query = em.createQuery(
+        "SELECT a FROM ArticleAGranel a WHERE a.unitat.simbol = :unitat", ArticleEnvasat.class);
+    return query.setParameter("unitat", tipus).getSingleResult();
+      
     }
 
     /**
