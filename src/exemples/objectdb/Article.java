@@ -10,6 +10,8 @@ package exemples.objectdb;
  */
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 /**
@@ -17,8 +19,9 @@ import java.io.Serializable;
  * Cada objecte s'identifica per la propietat id
  * @author professor
  */
-
+@Entity
 public class Article implements Serializable {
+    @Id
     private String id; //denominació de l'article
     private String descripcio;
     private String marca;

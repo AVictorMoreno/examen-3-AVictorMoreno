@@ -79,14 +79,14 @@ public static void main(String args[]){
 
     
     // Inicialitzacio de l'EntityManager i del gestor de la persistencia
-    emf = Persistence.createEntityManagerFactory("$objectdb/db/practice4.odb");
+    emf = Persistence.createEntityManagerFactory("practice4.odb");
     em=emf.createEntityManager();
 
     gestor = new GestorObjectDB(em);
 
     
     //Altes
-    
+    /*
     gestor.inserir(kg);
     gestor.inserir(gr);
     gestor.inserir(litre);
@@ -106,7 +106,7 @@ public static void main(String args[]){
     gestor.inserir(pera);
     gestor.inserir(poma);
     gestor.inserir(platan);
-    
+    */
     
     // Consultes
     

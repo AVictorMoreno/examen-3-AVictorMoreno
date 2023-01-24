@@ -4,6 +4,7 @@
  */
 package exemples.objectdb;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 
@@ -12,7 +13,7 @@ import javax.persistence.ManyToOne;
  * Classe que representa un article que es serveix en envas
  * @author professor
  */
-
+@Entity
 public class ArticleEnvasat extends Article {
     @ManyToOne
     private Envas envas;

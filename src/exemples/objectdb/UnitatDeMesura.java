@@ -10,12 +10,14 @@ package exemples.objectdb;
  */
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  * Classe que representa una unitat de mesura
  * Cada objecte s'identifica pel simbol o abreviacio
  * @author professor
  */
+@Entity
 public class UnitatDeMesura implements Serializable {
     private static final long serialVersionUID = 1L;
     private String simbol=null;
